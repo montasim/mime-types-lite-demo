@@ -164,9 +164,9 @@ getMimeType('PNG');   // 'image/png'`}
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-lg border bg-card p-4 sm:p-6 min-w-0">
                 <div className="flex items-center gap-2 mb-4">
-                  <Terminal className="h-5 w-5 text-primary" />
+                  <Terminal className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="font-semibold">File Upload Validation</h3>
                 </div>
                 <CodeBlock
@@ -187,9 +187,9 @@ function validateUpload(file: File) {
                 />
               </div>
 
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-lg border bg-card p-4 sm:p-6 min-w-0">
                 <div className="flex items-center gap-2 mb-4">
-                  <Code2 className="h-5 w-5 text-primary" />
+                  <Code2 className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="font-semibold">Static File Server</h3>
                 </div>
                 <CodeBlock
@@ -218,9 +218,9 @@ http.createServer((req, res) => {
                 />
               </div>
 
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-lg border bg-card p-4 sm:p-6 min-w-0">
                 <div className="flex items-center gap-2 mb-4">
-                  <Shield className="h-5 w-5 text-primary" />
+                  <Shield className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="font-semibold">Content-Type Headers</h3>
                 </div>
                 <CodeBlock
@@ -245,9 +245,9 @@ async function sendFile(res: Response, filePath: string) {
                 />
               </div>
 
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-lg border bg-card p-4 sm:p-6 min-w-0">
                 <div className="flex items-center gap-2 mb-4">
-                  <Layers className="h-5 w-5 text-primary" />
+                  <Layers className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="font-semibold">API Response Formatting</h3>
                 </div>
                 <CodeBlock

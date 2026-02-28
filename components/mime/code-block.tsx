@@ -30,8 +30,8 @@ export function CodeBlock({ code, language = 'typescript', title }: CodeBlockPro
         </div>
       )}
       <div className="relative">
-        <pre className="overflow-x-auto p-4 text-sm">
-          <code>{code}</code>
+        <pre className="overflow-x-auto p-4 text-sm min-w-0">
+          <code className="block min-w-0">{code}</code>
         </pre>
         <Button
           variant="ghost"
