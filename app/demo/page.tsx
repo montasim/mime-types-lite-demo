@@ -1,13 +1,15 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+
 import { FileText, FileCode, List } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { MimeLookupDemo, ExtensionDemo, CodeBlock } from '@/components/mime';
 import mimeTypesLite from 'mime-types-lite';
+
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { MimeLookupDemo, ExtensionDemo, CodeBlock } from '@/components/mime';
+import { Button } from '@/components/ui/button';
+
 
 export default function DemoPage() {
   const [activeTab, setActiveTab] = useState<'lookup' | 'extension' | 'browse'>('lookup');
@@ -16,21 +18,21 @@ export default function DemoPage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-8 sm:py-12">
         <div className="mx-auto max-w-4xl">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Interactive Playground
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Try mime-types-lite directly in your browser
             </p>
           </div>
 
           {/* Tabs */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex rounded-lg border bg-muted p-1">
+            <div className="inline-flex flex-wrap justify-center gap-2 rounded-lg border bg-muted p-1 sm:flex-nowrap">
               <Button
                 variant={activeTab === 'lookup' ? 'default' : 'ghost'}
                 size="sm"
@@ -38,7 +40,8 @@ export default function DemoPage() {
                 className="gap-2"
               >
                 <FileText className="h-4 w-4" />
-                MIME Lookup
+                <span className="hidden sm:inline">MIME Lookup</span>
+                <span className="sm:hidden">Lookup</span>
               </Button>
               <Button
                 variant={activeTab === 'extension' ? 'default' : 'ghost'}
@@ -47,7 +50,8 @@ export default function DemoPage() {
                 className="gap-2"
               >
                 <FileCode className="h-4 w-4" />
-                Extension Lookup
+                <span className="hidden sm:inline">Extension Lookup</span>
+                <span className="sm:hidden">Extension</span>
               </Button>
               <Button
                 variant={activeTab === 'browse' ? 'default' : 'ghost'}
@@ -56,7 +60,8 @@ export default function DemoPage() {
                 className="gap-2"
               >
                 <List className="h-4 w-4" />
-                Browse All
+                <span className="hidden sm:inline">Browse All</span>
+                <span className="sm:hidden">Browse</span>
               </Button>
             </div>
           </div>
@@ -155,7 +160,7 @@ getExtension('image/png');     // 'png'`}
 
           {/* API Reference */}
           <div className="mt-16">
-            <h2 className="text-2xl font-bold tracking-tight mb-8 text-center">
+            <h2 className="text-xl font-bold tracking-tight mb-8 text-center sm:text-2xl">
               API Reference
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
@@ -200,7 +205,7 @@ const invalid: MimeType = 'INVALID';
 
           {/* Common MIME Types Table */}
           <div className="mt-16">
-            <h2 className="text-2xl font-bold tracking-tight mb-8 text-center">
+            <h2 className="text-xl font-bold tracking-tight mb-8 text-center sm:text-2xl">
               Common MIME Types
             </h2>
             <div className="overflow-x-auto rounded-lg border">

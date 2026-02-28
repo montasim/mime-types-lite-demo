@@ -1,9 +1,11 @@
 import Link from 'next/link';
+
 import { ArrowRight, Zap, Shield, Layers, Code2, Terminal } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Header } from '@/components/header';
+
 import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
 import { FeatureCard, CodeBlock, InstallationTabs } from '@/components/mime';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   return (
@@ -12,23 +14,23 @@ export default function Home() {
 
       <main>
         {/* Hero */}
-        <section className="container mx-auto px-4 py-24">
+        <section className="container mx-auto px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
               Lightweight MIME Type Definitions
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="mt-6 text-base text-muted-foreground sm:text-lg">
               A minimal, type-safe collection of common MIME types for Node.js and browser applications.
               Zero dependencies, full TypeScript support.
             </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <Button size="lg" asChild>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild className="w-full sm:w-auto">
                 <Link href="/demo">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
                 <Link
                   href="https://www.npmjs.com/package/mime-types-lite"
                   target="_blank"
@@ -47,10 +49,10 @@ export default function Home() {
         </section>
 
         {/* Features */}
-        <section className="bg-muted/50 py-24">
+        <section className="bg-muted/50 py-16 sm:py-24">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight">Features</h2>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Features</h2>
               <p className="mt-4 text-muted-foreground">
                 Everything you need for MIME type handling in a lightweight package
               </p>
@@ -81,14 +83,14 @@ export default function Home() {
         </section>
 
         {/* API Overview */}
-        <section className="container mx-auto px-4 py-24">
+        <section className="container mx-auto px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold tracking-tight text-center mb-12">
+            <h2 className="text-2xl font-bold tracking-tight text-center mb-12 sm:text-3xl">
               Simple API
             </h2>
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4">Import MIME Types</h3>
+                <h3 className="text-lg font-semibold mb-4 sm:text-xl">Import MIME Types</h3>
                 <CodeBlock
                   code={`import mimeTypesLite from 'mime-types-lite';
 
@@ -104,7 +106,7 @@ mimeTypesLite.JSON;        // 'application/json'`}
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4">TypeScript Support</h3>
+                <h3 className="text-lg font-semibold mb-4 sm:text-xl">TypeScript Support</h3>
                 <CodeBlock
                   code={`import mimeTypesLite, { type MimeType } from 'mime-types-lite';
 
@@ -125,7 +127,7 @@ const mimeType: string = mimeTypesLite[supportedTypes[0]];
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4">Create Lookup Functions</h3>
+                <h3 className="text-lg font-semibold mb-4 sm:text-xl">Create Lookup Functions</h3>
                 <CodeBlock
                   code={`import mimeTypesLite from 'mime-types-lite';
 
@@ -153,10 +155,10 @@ getMimeType('PNG');   // 'image/png'`}
         </section>
 
         {/* Use Cases */}
-        <section className="bg-muted/50 py-24">
+        <section className="bg-muted/50 py-16 sm:py-24">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight">Use Cases</h2>
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Use Cases</h2>
               <p className="mt-4 text-muted-foreground">
                 Common scenarios where mime-types-lite shines
               </p>
@@ -273,22 +275,22 @@ app.get('/export', (req, res) => {
         </section>
 
         {/* CTA */}
-        <section className="container mx-auto px-4 py-24">
-          <div className="mx-auto max-w-3xl text-center rounded-2xl border bg-gradient-to-r from-primary/10 to-primary/5 p-12">
-            <h2 className="text-3xl font-bold tracking-tight">
+        <section className="container mx-auto px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center rounded-2xl border bg-gradient-to-r from-primary/10 to-primary/5 p-8 sm:p-12">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
               Ready to get started?
             </h2>
             <p className="mt-4 text-muted-foreground">
               Try the interactive demo or install mime-types-lite in your project
             </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <Button size="lg" asChild>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild className="w-full sm:w-auto">
                 <Link href="/demo">
                   Try Interactive Demo
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
                 <Link
                   href="https://www.npmjs.com/package/mime-types-lite"
                   target="_blank"

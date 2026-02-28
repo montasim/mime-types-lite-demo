@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+
 import { Copy, Check } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 
 interface CodeBlockProps {
@@ -23,8 +25,8 @@ export function CodeBlock({ code, language = 'typescript', title }: CodeBlockPro
     <div className="overflow-hidden rounded-lg border bg-muted/80 text-foreground backdrop-blur-sm">
       {title && (
         <div className="flex items-center justify-between border-b bg-muted/50 px-4 py-2">
-          <span className="text-xs font-medium text-muted-foreground">{title}</span>
-          <span className="text-xs text-muted-foreground">{language}</span>
+          <span className="text-xs font-medium text-muted-foreground truncate pr-2">{title}</span>
+          <span className="text-xs text-muted-foreground shrink-0">{language}</span>
         </div>
       )}
       <div className="relative">
@@ -35,7 +37,7 @@ export function CodeBlock({ code, language = 'typescript', title }: CodeBlockPro
           variant="ghost"
           size="icon"
           onClick={handleCopy}
-          className="absolute right-2 top-2 h-8 w-8 text-muted-foreground hover:text-foreground"
+          className="absolute right-2 top-2 h-8 w-8 text-muted-foreground hover:text-foreground shrink-0"
         >
           {copied ? (
             <Check className="h-4 w-4" />

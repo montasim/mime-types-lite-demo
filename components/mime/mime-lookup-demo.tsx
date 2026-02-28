@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import mimeTypesLite from 'mime-types-lite';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+
 import { Copy, Check, FileText, Search } from 'lucide-react';
+import mimeTypesLite from 'mime-types-lite';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 // Create extension to MIME mapping from the mimeTypesLite object
 const extensionToMime: Record<string, string> = {
@@ -132,7 +134,7 @@ export function MimeLookupDemo() {
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="file-path">File Path / Extension</Label>
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row">
             <Input
               id="file-path"
               placeholder="e.g., index.html or .png"
@@ -140,7 +142,7 @@ export function MimeLookupDemo() {
               onChange={(e) => setFilePath(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleLookup()}
             />
-            <Button onClick={handleLookup}>
+            <Button onClick={handleLookup} className="sm:w-auto w-full">
               <Search className="h-4 w-4" />
             </Button>
           </div>
@@ -166,10 +168,10 @@ export function MimeLookupDemo() {
 
         {result !== null && (
           <div className="rounded-lg border bg-muted p-4">
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between gap-4">
+              <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-muted-foreground">Result</p>
-                <p className="mt-1 font-mono text-lg">
+                <p className="mt-1 font-mono text-base truncate sm:text-lg">
                   {result}
                 </p>
               </div>
@@ -177,7 +179,7 @@ export function MimeLookupDemo() {
                 variant="ghost"
                 size="icon"
                 onClick={handleCopy}
-                className="h-8 w-8"
+                className="h-8 w-8 shrink-0"
               >
                 {copied ? (
                   <Check className="h-4 w-4" />
