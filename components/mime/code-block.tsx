@@ -20,11 +20,11 @@ export function CodeBlock({ code, language = 'typescript', title }: CodeBlockPro
   };
 
   return (
-    <div className="overflow-hidden rounded-lg border bg-zinc-950 text-zinc-50 dark:bg-zinc-900">
+    <div className="overflow-hidden rounded-lg border bg-muted/80 text-foreground backdrop-blur-sm">
       {title && (
-        <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/50 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">{title}</span>
-          <span className="text-xs text-zinc-500">{language}</span>
+        <div className="flex items-center justify-between border-b bg-muted/50 px-4 py-2">
+          <span className="text-xs font-medium text-muted-foreground">{title}</span>
+          <span className="text-xs text-muted-foreground">{language}</span>
         </div>
       )}
       <div className="relative">
@@ -35,7 +35,7 @@ export function CodeBlock({ code, language = 'typescript', title }: CodeBlockPro
           variant="ghost"
           size="icon"
           onClick={handleCopy}
-          className="absolute right-2 top-2 h-8 w-8 text-zinc-400 hover:text-zinc-50"
+          className="absolute right-2 top-2 h-8 w-8 text-muted-foreground hover:text-foreground"
         >
           {copied ? (
             <Check className="h-4 w-4" />
