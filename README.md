@@ -1,53 +1,21 @@
-# Next.js + shadcn/ui Template
+# mime-types-lite Demo
 
-A modern, production-ready Next.js 16 template with shadcn/ui, TypeScript, Tailwind CSS v4, and comprehensive tooling setup.
+A comprehensive demo website showcasing the [mime-types-lite](https://www.npmjs.com/package/mime-types-lite) package - a lightweight, type-safe collection of common MIME types for Node.js and browser applications.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![mime-types-lite](https://img.shields.io/badge/mime--types--lite-1.7.2-green)](https://www.npmjs.com/package/mime-types-lite)
 
 ## ✨ Features
 
-- 🚀 **Next.js 16** with App Router
-- ⚛️ **React 19** with Server Components
-- 🎨 **shadcn/ui** components
-- 🎨 **Tailwind CSS v4** for styling
-- 📘 **TypeScript** with strict mode
-- 🔍 **ESLint** with comprehensive rules
-- 💅 **Prettier** for code formatting
-- 🪝 **Husky** + **lint-staged** for git hooks
-- 📝 **Commitlint** for conventional commits
-- 🐧 **pnpm** package manager
-- 🎯 **Absolute imports** with `@/` prefix
-- 📦 **Clean architecture** with organized folder structure
-- 🤖 **AI Agent Guidelines** - Enforced coding standards for AI agents
-
-## 🤖 AI Agent Guidelines
-
-This repository includes comprehensive guidelines for AI agents (Claude, Cursor, GitHub Copilot, etc.) to ensure consistent, high-quality code:
-
-- **[AI_GUIDELINES.md](./AI_GUIDELINES.md)** - Comprehensive coding standards (CLEAN CODE, SOLID, Next.js, API best practices)
-- **[CLAUDE.md](./CLAUDE.md)** - Specific instructions for Claude AI
-- **[.cursorrules](./.cursorrules)** - Rules for Cursor AI editor
-- **[docs/](./docs/)** - Detailed documentation on architecture, patterns, and examples
-
-**All AI agents working on this codebase should follow these guidelines** to maintain code quality and consistency.
-
-## 🏗️ Project Structure
-
-```
-.
-├── app/                  # Next.js App Router pages
-├── components/           # React components
-│   └── ui/              # shadcn/ui components
-├── lib/                 # Utility functions
-├── hooks/               # Custom React hooks
-├── types/               # TypeScript type definitions
-├── config/              # App configuration
-├── public/              # Static assets
-└── .vscode/             # VS Code settings
-```
+- 📄 **Homepage** - Package overview, installation guide, and API documentation
+- 🎮 **Interactive Playground** - Test MIME type lookups directly in your browser
+- 📚 **API Reference** - Complete documentation with usage examples
+- 🔍 **Browse All Types** - View all 80+ available MIME types
+- 🎨 **Modern UI** - Built with shadcn/ui components and Tailwind CSS
+- 🌓 **Dark/Light Mode** - Automatic theme switching
+- 📱 **Responsive Design** - Works on all devices
 
 ## 🚀 Getting Started
 
@@ -58,32 +26,121 @@ This repository includes comprehensive guidelines for AI agents (Claude, Cursor,
 
 ### Installation
 
-1. **Clone the repository** (or use as a GitHub template)
+1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/nextjs-shadcn-template.git
-cd nextjs-shadcn-template
+git clone https://github.com/yourusername/mime-types-lite-demo.git
+cd mime-types-lite-demo
 ```
 
 2. **Install dependencies**
 
 ```bash
 pnpm install
+# or
+npm install
+# or
+yarn install
 ```
 
-3. **Configure environment variables** (optional)
-
-```bash
-cp .env.example .env.local
-```
-
-4. **Run the development server**
+3. **Run the development server**
 
 ```bash
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📦 mime-types-lite Package
+
+### Installation
+
+```bash
+npm install mime-types-lite
+# or
+yarn add mime-types-lite
+# or
+pnpm add mime-types-lite
+```
+
+### Basic Usage
+
+```typescript
+import mimeTypesLite from 'mime-types-lite';
+
+// Access MIME types as constants
+mimeTypesLite.HTML;   // 'text/html'
+mimeTypesLite.PNG;    // 'image/png'
+mimeTypesLite.JSON;   // 'application/json'
+mimeTypesLite.PDF;    // 'application/pdf'
+```
+
+### TypeScript Support
+
+```typescript
+import mimeTypesLite, { type MimeType } from 'mime-types-lite';
+
+// Type-safe MIME type references
+const supportedTypes: MimeType[] = ['HTML', 'CSS', 'PNG', 'JPEG'];
+```
+
+### Create Lookup Functions
+
+```typescript
+import mimeTypesLite from 'mime-types-lite';
+
+const extensionMap: Record<string, string> = {
+  'html': mimeTypesLite.HTML,
+  'css': mimeTypesLite.CSS,
+  'js': mimeTypesLite.JS,
+  'png': mimeTypesLite.PNG,
+};
+
+function getMimeType(extension: string): string | undefined {
+  return extensionMap[extension.toLowerCase()];
+}
+```
+
+## 🌐 Pages
+
+### Homepage (`/`)
+
+- Package introduction and features
+- Installation instructions
+- API documentation with examples
+- Real-world use cases
+- Links to npm and GitHub
+
+### Demo Page (`/demo`)
+
+Interactive playground with three tabs:
+
+1. **MIME Lookup** - Enter file extensions to get MIME types
+2. **Extension Lookup** - Enter MIME types to get file extensions
+3. **Browse All** - View complete list of available MIME types
+
+## 🏗️ Project Structure
+
+```
+.
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   └── demo/
+│       └── page.tsx       # Interactive demo page
+├── components/
+│   ├── header.tsx         # Site header
+│   ├── footer.tsx         # Site footer
+│   ├── mime/              # MIME demo components
+│   │   ├── mime-lookup-demo.tsx
+│   │   ├── extension-demo.tsx
+│   │   ├── code-block.tsx
+│   │   ├── feature-card.tsx
+│   │   └── usage-example.tsx
+│   └── ui/                # shadcn/ui components
+├── lib/                   # Utility functions
+├── config/                # App configuration
+└── public/                # Static assets
+```
 
 ## 📜 Available Scripts
 
@@ -98,130 +155,34 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `pnpm format:check` | Check code formatting     |
 | `pnpm typecheck`    | Run TypeScript type check |
 
-## 🎨 Adding Components
+## 🎨 Components
 
-### Adding shadcn/ui Components
+### MIME Demo Components
 
-Use the shadcn CLI to add components:
+- **`MimeLookupDemo`** - Interactive MIME type lookup from file extensions
+- **`ExtensionDemo`** - Interactive extension lookup from MIME types
+- **`CodeBlock`** - Syntax-highlighted code blocks with copy functionality
+- **`FeatureCard`** - Feature display cards
+- **`UsageExample`** - Usage example cards
 
-```bash
-npx shadcn@latest add [component-name]
-```
+### Shared Components
 
-Examples:
-
-```bash
-npx shadcn@latest add dialog
-npx shadcn@latest add dropdown-menu
-npx shadcn@latest add toast
-```
-
-### Creating Custom Components
-
-Create custom components in the appropriate directories:
-
-```bash
-components/ui/      # UI-specific components
-components/features/ # Feature-specific components
-components/layouts/  # Layout components
-```
+- **`Header`** - Site navigation with npm and GitHub links
+- **`Footer`** - Site footer with developer attribution
 
 ## 🔧 Configuration
 
 ### ESLint
 
-ESLint is configured with comprehensive rules for:
-
-- TypeScript
-- React/Next.js
-- Import organization
-- Code quality and complexity
+ESLint is configured with comprehensive rules for TypeScript, React/Next.js, and code quality.
 
 Configuration file: `eslint.config.mjs`
 
 ### Prettier
 
-Prettier handles code formatting with:
-
-- Single quotes
-- Semicolons
-- 2-space indentation
-- Trailing commas
+Prettier handles code formatting with single quotes, semicolons, and 2-space indentation.
 
 Configuration file: `prettier.config.js`
-
-### Git Hooks
-
-Git hooks are managed by Husky:
-
-- **pre-commit**: Runs lint-staged (ESLint + Prettier)
-- **commit-msg**: Validates commit messages with Commitlint
-
-### Conventional Commits
-
-This project uses conventional commits. Format your commit messages as:
-
-```
-type(scope): description
-
-[optional body]
-
-[optional footer]
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`
-
-Example:
-
-```bash
-git commit -m "feat(auth): add user login component"
-```
-
-## 📦 Environment Variables
-
-Create a `.env.local` file from `.env.example`:
-
-```bash
-cp .env.example .env.local
-```
-
-Access environment variables type-safely in `config/env.ts`:
-
-```typescript
-import { publicEnv, isDevelopment } from '@/config/env';
-
-console.log(publicEnv.appUrl);
-console.log(isDevelopment);
-```
-
-## 🎯 Best Practices
-
-### Code Style
-
-- Use **TypeScript** for all new files
-- Follow **SOLID principles**
-- Keep components **small and focused**
-- Use **absolute imports** (`@/components/...`)
-- Add **JSDoc comments** for utility functions
-
-### Component Organization
-
-```
-components/
-├── ui/           # Generic UI components (buttons, inputs, etc.)
-├── features/     # Feature-specific components
-└── layouts/      # Layout components (header, sidebar, etc.)
-```
-
-### Utility Functions
-
-Add utility functions to `lib/utils.ts`:
-
-- `cn()` - Merge Tailwind classes
-- `formatDate()` - Format dates
-- `formatCurrency()` - Format currency
-- `truncate()` - Truncate text
-- `debounce()` - Debounce functions
 
 ## 🚢 Deployment
 
@@ -233,34 +194,52 @@ Add utility functions to `lib/utils.ts`:
 
 ### Other Platforms
 
-Build the project:
-
 ```bash
 pnpm build
-```
-
-Start the production server:
-
-```bash
 pnpm start
 ```
+
+## 📚 Available MIME Types
+
+The package includes 80+ MIME type constants:
+
+### Document Types
+- `HTML`, `CSS`, `JS`, `JSON`, `XML`, `PDF`, `MD`, `TXT`, `CSV`
+- `DOC`, `DOCX`, `XLS`, `XLSX`, `PPT`, `PPTX`
+- `ODT`, `ODS`, `RTF`, `TEX`, `EPUB`
+
+### Image Types
+- `PNG`, `JPG`, `JPEG`, `GIF`, `BMP`, `TIFF`, `SVG`, `ICO`
+- `WEBP`, `AVIF`, `HEIC`, `PSD`, `XCF`, `JP2`
+
+### Video Types
+- `MP4`, `WEBM`, `MOV`, `AVI`, `MPEG`, `MKV`, `WMV`, `FLV`
+
+### Audio Types
+- `MP3`, `WAV`, `OGG`, `FLAC`, `AAC`, `MIDI`, `AMR`
+
+### Archive Types
+- `ZIP`, `TAR`, `GZ`, `BZ2`, `RAR`, `SEVEN_ZIP`
+
+### Font Types
+- `WOFF`, `WOFF2`, `TTF`, `OTF`
+
+### Web Types
+- `YAML`, `GRAPHQL`, `WASM`, `RSS`, `ATOM`, `ICS`
+
+## 🔗 Links
+
+- [mime-types-lite on npm](https://www.npmjs.com/package/mime-types-lite)
+- [mime-types-lite on GitHub](https://github.com/montasim/mime-types-lite)
+- [Developer GitHub](https://github.com/montasim)
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feat/amazing-feature`)
-5. Open a Pull Request
-
 ## 🙏 Acknowledgments
 
+- [mime-types-lite](https://github.com/montasim/mime-types-lite) by Mohammad Montasim -Al- Mamun Shuvo
 - [Next.js](https://nextjs.org/)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [Tailwind CSS](https://tailwindcss.com/)

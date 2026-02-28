@@ -1,7 +1,26 @@
 {
-  "name": "nextjs-shadcn-template",
-  "version": "0.1.0",
+  "name": "mime-types-lite-demo",
+  "version": "1.0.0",
+  "description": "A comprehensive demo website showcasing the mime-types-lite package - a lightweight, type-safe collection of common MIME types for Node.js and browser applications",
   "private": true,
+  "keywords": [
+    "mime-types",
+    "mime-types-lite",
+    "mime",
+    "content-type",
+    "file-types",
+    "media-types",
+    "demo",
+    "nextjs",
+    "react",
+    "typescript",
+    "shadcn-ui",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "Mohammad Montasim -Al- Mamun Shuvo",
+    "url": "https://github.com/montasim"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,6 +40,7 @@
     "clsx": "^2.1.1",
     "http-status-lite": "^0.1.14",
     "lucide-react": "^0.468.0",
+    "mime-types-lite": "^1.7.2",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
